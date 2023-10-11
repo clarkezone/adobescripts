@@ -58,7 +58,9 @@ if (app.documents.length > 0) {
   squareColor.rgb.red = squareRgb[0];
   squareColor.rgb.green = squareRgb[1];
   squareColor.rgb.blue = squareRgb[2];
-  doc.selection.fill(squareColor);
+
+  //doc.selection.fill(squareColor);
+  doc.selection.fill(app.foregroundColor);
   doc.selection.deselect();
 
   // Create a text layer
@@ -71,7 +73,7 @@ if (app.documents.length > 0) {
   textItem.contents = "DC";
   textItem.justification = Justification.CENTER;
   textItem.position = [((right - left) / 2 + left), ((bottom - top) / 2 + top)];
-  textItem.size = 20;
+  textItem.size = 72;
   textItem.font = "ArialMT";
 
   // Set the text color using HEX
@@ -80,7 +82,10 @@ if (app.documents.length > 0) {
   textColor.rgb.red = textRgb[0];
   textColor.rgb.green = textRgb[1];
   textColor.rgb.blue = textRgb[2];
+
   textItem.color = textColor;
+
+  //textItem.color = app.foregroundColor;
 
   // Ensure the text layer is above the square layer
   textLayer.move(squareLayer, ElementPlacement.PLACEBEFORE);
